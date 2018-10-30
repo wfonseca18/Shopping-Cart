@@ -58,7 +58,6 @@ var categories = [];
 
 function duplicateCheck(name, index){
     var cartList = $('.cart-list'), item = $(`#btn-${index}`);
-    // console.log(cart.length);
     for(let i = 0; i < cartList.length; i++){
         if(item.text() === name){
             alert(name + ' already exists in cart!');
