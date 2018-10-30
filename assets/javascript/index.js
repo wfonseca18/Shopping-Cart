@@ -86,7 +86,7 @@ for (let i = 0; i < productList.length; i++) {
         duplicateCheck(productList[i].name, i);
     });
 }
-//
+
 // For each item in productList, dynamically populate categories array.
 productList.forEach(item => {
     let exists = false;
