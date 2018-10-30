@@ -69,7 +69,7 @@ function duplicateCheck(name, index){
             alert(name + ' already exists in cart!');
         }else{
             // Create the button and event listener for the button that's in the shopping cart.
-            cartList.append(`<button id="btn-${index}" class="cart m-2 btn-${index}">${name}</button>`);
+            cartList.append(`<button id="btn-${index}" class="cart m-2 btn-${index} btn-outline-danger">${name}</button>`);
             $(`#btn-${index}`).on('click', function(){
                 // Removes the button from the shopping cart.
                 $(`#btn-${index}`).remove();
