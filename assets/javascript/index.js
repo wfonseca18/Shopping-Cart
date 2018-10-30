@@ -56,10 +56,22 @@ var productList = [
 
 var categories = [];
 
+function duplicateCheck(name, index){
+    var cartList = $('.cart-list'), item = $(`#btn-${index}`);
+    console.log(cart.length);
+    for(let i = 0; i < cartList.length; i++){
+        if(cart.text() === name){
+            alert(name + ' already exists in cart!');
+        }else{
+            cartList.append(`<button id="btn-${index}" class="cart m-2 btn-${index}">${name}</button>`);
+        }
+    }
+}
+
 for (let i = 0; i < productList.length; i++) {
-    $('.item-list').append(`<button class="m-2 btn-${i}">${productList[i].name}</button>`);
+    $('.item-list').append(`<button class="product m-2 btn-${i} ${productList[i].category}">${productList[i].name}</button>`);
     $(`.btn-${i}`).on('click', function () {
-        $('.cart-list').append(`<button id="btn-${i}" class="m-2 btn-${i}">${productList[i].name}</button>`);
+        duplicateCheck(productList[i].name, i);
     });
 }
 
@@ -72,15 +84,14 @@ productList.forEach(item => {
         categories.push(item.category);
         $('.categories').append(`<button class="m-2" id="${item.category}">${item.category}</button>`);
         $(`#${item.category}`).on('click', function(){
-            console.log(item.category);
-            let products = $('.item-list');
-            products.forEach(product => {
-                // 
-            });
-
+            $('.product').hide();
+            $(`.${item.category}`).show();
         });
         exists = false;
     }
 });
 
+$('#all').on('click', function(){
+    $('.product').show();
+});
 
